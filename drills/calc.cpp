@@ -194,6 +194,7 @@ double power_function(char p)
     if (t.kind != ',') error("',' expected");
     t = ts.get();
     if (t.kind != number) error("Expected a number");
+    //int i = narrow_cast<int>(t.value);
     int i = int(t.value);
     if (i != t.value) error("Power must be an integer");
     t = ts.get();
