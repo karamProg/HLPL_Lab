@@ -80,32 +80,12 @@ ostream& operator<< (ostream& os, Date d)
 		<< d.get_day();
 }
 
-istream& operator>> (istream& is, Date& dd)
-{
-	// (2021-3-24)
-	int y,m,d;
-	char ch1, ch2, ch3, ch4;
-	is >> ch1 >> y >> ch2 >> m >> ch3 >> d >> ch4;
-
-	if(!is) return is;
-
-	if(ch1 != '(' || ch2 != '-' || ch3 != '-' || ch4 != ')')
-	{
-		is.clear(ios_base::failbit);
-		return is;
-	}
-
-	dd = Date{y, Month(m-1), d};
-
-	return is;
-}
-
 int main()
 try {
 
 	Date today(1978, Month::jun, 25);
 	cout << today << endl;
-	
+
 
 	Date tomorrow;
 	// cout << tomorrow << endl;
