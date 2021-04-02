@@ -13,7 +13,7 @@ int main () {
 		vector<Point> original_points;
 
 		cout << "Enter points in the form of x and y values: e.g 5 7 " << endl;
-		int n = 3;
+		int n = 7;
 		while(n>0) {
 			cin >> x >> y;
 			original_points.push_back(Point{x,y});
@@ -49,22 +49,18 @@ int main () {
 		p.y = 0;
 
 		while(ifs >> ch1 >> x >> ch2 >> y >> ch3) {
-			cout << "Copying!!" << endl << endl;
-			// ifs >> x >> ch2 >> y >> ch3;
 		    if (ch1!='(' || ch2!=',' || ch3!=')') {
 		        throw wrong_input();
 		    }
 		    p.x = x;
 		    p.y = y;
             processed_points.push_back(p);
-    		// cout << ch1 << "Hey!!" << endl;
 		}
 		//Testing size to see if points were copied. 
-		cout << "Size of proccessed = " << processed_points.size() << endl;
+		// cout << "Size of proccessed = " << processed_points.size() << endl;
 		cout << "Result of processed_points vector: " << endl;
 		for (const auto& processed : processed_points) {
-			cout << "Sup? I am printing processed points!!";
-			cout << '(' << processed.x << ", " << processed.y << ')'<< endl;
+			cout << '(' << processed.x << "," << processed.y << ')'<< endl;
 		}
 	}
 
