@@ -1,5 +1,5 @@
 #include "./../std_lib_facilities.h"
-
+class wrong_input{};
 int main () {
 	try {
 		struct Point {
@@ -12,24 +12,22 @@ int main () {
 		int y = 0;
 		vector<Point> original_points;
 
-
-		int n = 1;
+		cout << "Enter points in the form of x and y values: e.g 5 7 " << endl;
+		int n = 3;
 		while(n>0) {
 			cin >> x >> y;
 			original_points.push_back(Point{x,y});
 			n--;
 		}
-
+		cout << "Result of original_points vector: " << endl;
 		for (const auto& point : original_points)
-			cout << '(' << point.x << ", " << point.y << ')' << endl;
-
-
+			cout << '(' << point.x << "," << point.y << ')' << endl;
 
 		string oname = "mydata.txt";
 		ofstream ost {oname}; 
 		if (!ost) error("can't open output file ",oname);
-		for (Point p : original_points) ost << '(' << p.x << ',' << p.y << ")\n";
-
+		for (Point p : original_points) ost << '(' << p.x << ',' << p.y << ") ";
+		ost.close();
 
 
 
@@ -41,14 +39,33 @@ int main () {
 		ifstream ifs { iname };
 
 		if ( !ifs ) error ("Cannot open file: ", iname);
-		vector<Point> Processed_points;
-		string ch1, ch2, ch3;
-		for (Point p; ifs >> ch1 >> p.x >> ch2 >> p.y >> ch3; )
-        Processed_points.push_back(Point{p.x, p.y});
 
-		for (const auto& point : Processed_points)
-			cout << '(' << point.x << ", " << point.y << ')' << endl;
-		return 0;
+
+		vector<Point> processed_points;
+		char ch1, ch2, ch3;
+		string str;
+		Point p;
+		p.x = 0;
+		p.y = 0;
+
+		while(ifs >> ch1 >> x >> ch2 >> y >> ch3) {
+			cout << "Copying!!" << endl << endl;
+			// ifs >> x >> ch2 >> y >> ch3;
+		    if (ch1!='(' || ch2!=',' || ch3!=')') {
+		        throw wrong_input();
+		    }
+		    p.x = x;
+		    p.y = y;
+            processed_points.push_back(p);
+    		// cout << ch1 << "Hey!!" << endl;
+		}
+		//Testing size to see if points were copied. 
+		cout << "Size of proccessed = " << processed_points.size() << endl;
+		cout << "Result of processed_points vector: " << endl;
+		for (const auto& processed : processed_points) {
+			cout << "Sup? I am printing processed points!!";
+			cout << '(' << processed.x << ", " << processed.y << ')'<< endl;
+		}
 	}
 
 	catch (exception& e) {
