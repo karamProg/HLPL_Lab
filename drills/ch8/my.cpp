@@ -49,6 +49,7 @@ int main () {
 }
 
 /*
+
 Which functions and calls compiled, and why? 
 
 **********Functions:
