@@ -91,12 +91,9 @@ try {
 	// cout << tomorrow << endl;
 	today.add_day();
 	tomorrow = today;
-
-
 	cout << tomorrow << endl;
-	
 	return 0;
-
+	
 } catch (Invalid) {
 	cerr << "Invalid date.\n";
 	return 1;
