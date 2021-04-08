@@ -77,8 +77,6 @@ int main () {
 			}
 			counter++;
 		}
-
-
 	}
 
 	catch (exception& e) {
