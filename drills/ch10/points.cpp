@@ -13,7 +13,7 @@ int main () {
 		vector<Point> original_points;
 		char ch1, ch2, ch3;
 		cout << "Enter points in the form of x and y value pairs: e.g. (5,7) " << endl;
-		int n = 7;
+		int n = 3;
 		while(n>0) {
 			cin >> ch1 >> x >> ch2 >> y >> ch3;
 			if (ch1!='(' || ch2!=',' || ch3!=')') {
